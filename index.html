@@ -1,115 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIKE</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:black;
+      color:white;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      padding:20px 50px;
+      position:fixed;
+      width:100%;
+      background:rgba(0,0,0,0.8);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    nav h1{
+      letter-spacing:8px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+    }
+
+    .hero{
+      height:100vh;
+      background:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h2{
+      font-size:80px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      color:#ccc;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      padding:15px 35px;
+      border:none;
+      border-radius:40px;
+      background:white;
+      color:black;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .products{
+      padding:100px 50px;
+    }
+
+    .products h3{
+      text-align:center;
+      font-size:50px;
+      margin-bottom:50px;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#111;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card h4{
+      margin-bottom:10px;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      border-top:1px solid #222;
+      color:#888;
+    }
+  </style>
 </head>
 
-<body class="bg-black text-white font-sans">
+<body>
 
-  <!-- HERO -->
-  <section class="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+  <nav>
+    <h1>SIKE</h1>
 
-    <div class="absolute inset-0 bg-cover bg-center opacity-30"
-      style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop')">
-    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
 
-    <div class="relative z-10 max-w-4xl">
+  <section class="hero">
+    <div class="hero-content">
+      <h2>WEAR SIKE</h2>
 
-      <h1 class="text-7xl md:text-9xl font-extrabold tracking-[0.3em] uppercase">
-        SIKE
-      </h1>
+      <p>Dark aesthetic oversized streetwear brand</p>
 
-      <p class="mt-6 text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto">
-        Dark aesthetic streetwear for the new generation.
-      </p>
-
-      <div class="mt-10 flex gap-4 flex-wrap justify-center">
-
-        <button class="bg-white text-black px-8 py-4 rounded-2xl text-lg font-semibold">
-          Shop Now
-        </button>
-
-        <button class="border border-white px-8 py-4 rounded-2xl text-lg font-semibold">
-          Explore
-        </button>
-
-      </div>
+      <button class="btn">Shop Now</button>
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section class="py-24 px-6 md:px-20">
+  <section class="products">
 
-    <h2 class="text-5xl font-bold text-center mb-16">
-      Featured Drops
-    </h2>
+    <h3>Featured Collection</h3>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="product-grid">
 
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden">
-        <img
-          src="./products/white casual shirt.jpg"
-          class="h-[420px] w-full object-cover"
-        />
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
 
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold">
-            Rose Oversized Tee
-          </h3>
-
-          <p class="text-gray-400 mt-2">
-            ₹999
-          </p>
+        <div class="card-content">
+          <h4>Rose Oversized Tee</h4>
+          <p>₹999</p>
         </div>
       </div>
 
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden">
-        <img
-         src="./products/off white hoddie.jpg"
-          class="h-[420px] w-full object-cover"
-        />
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=1200&auto=format&fit=crop">
 
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold">
-            Shadow Graphic Tee
-          </h3>
-
-          <p class="text-gray-400 mt-2">
-            ₹1199
-          </p>
+        <div class="card-content">
+          <h4>Dark Hoodie</h4>
+          <p>₹1799</p>
         </div>
       </div>
 
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden">
-        <img
-          src="./products/white hoddie.jpg"
-          class="h-[420px] w-full object-cover"
-        />
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop">
 
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold">
-            Midnight Hoodie
-          </h3>
-
-          <p class="text-gray-400 mt-2">
-            ₹1899
-          </p>
+        <div class="card-content">
+          <h4>Minimal Tee</h4>
+          <p>₹899</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-zinc-800 py-8 text-center text-gray-500">
-    © 2026 SIKE. All rights reserved.
+  <footer>
+    <h2>SIKE</h2>
+    <p>Instagram: @sikewear</p>
+    <p>© 2026 SIKE. All rights reserved.</p>
   </footer>
 
 </body>
-
 </html>
