@@ -15,55 +15,49 @@
   <!-- HERO SECTION -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-    <!-- Background -->
+    <!-- BACKGROUND -->
     <div
       class="absolute inset-0 bg-cover bg-center"
       style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');">
     </div>
 
-    <!-- Dark Overlay -->
+    <!-- DARK OVERLAY -->
     <div class="absolute inset-0 bg-black/70"></div>
 
-    <!-- Content -->
+    <!-- CONTENT -->
     <div class="relative z-10 w-full max-w-7xl px-6">
 
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+      <div class="flex flex-col items-center text-center">
 
-        <!-- LEFT SIDE -->
-        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+        <!-- LOGO -->
+        <img
+          src="./logo.png"
+          alt="SIKE Logo"
+          class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white shadow-2xl mb-10"
+        />
 
-          <!-- LOGO -->
-          <img
-            src="./logo.png"
-            alt="SIKE Logo"
-            class="w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-white shadow-2xl mb-10"
-          />
+        <!-- BRAND NAME -->
+        <h1 class="text-6xl md:text-9xl font-extrabold tracking-[0.3em] uppercase mb-8">
+          SIKE
+        </h1>
 
-          <!-- BRAND -->
-          <h1 class="text-6xl md:text-8xl font-extrabold tracking-[0.3em] uppercase mb-6">
-            SIKE
-          </h1>
+        <!-- SUBTEXT -->
+        <p class="text-lg md:text-2xl text-gray-300 max-w-2xl leading-relaxed mb-12">
+          Dark aesthetic streetwear built for the new generation.
+        </p>
 
-          <!-- SUBTEXT -->
-          <p class="text-lg md:text-2xl text-gray-300 max-w-xl leading-relaxed mb-10">
-            Dark aesthetic streetwear built for the new generation.
-            Premium oversized fits with modern street energy.
-          </p>
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap justify-center gap-6">
 
-          <!-- BUTTONS -->
-          <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
+          <button
+            class="bg-white text-black px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
+            Shop Now
+          </button>
 
-            <button
-              class="bg-white text-black px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
-              Shop Now
-            </button>
-
-            <button
-              class="border border-white px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-black transition duration-300">
-              Explore
-            </button>
-
-          </div>
+          <button
+            class="border border-white px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-black transition duration-300">
+            Explore
+          </button>
 
         </div>
 
@@ -73,7 +67,7 @@
 
   </section>
 
-  <!-- PRODUCTS -->
+  <!-- PRODUCTS SECTION -->
   <section class="py-24 px-6 md:px-20 bg-black">
 
     <h2 class="text-5xl md:text-6xl font-bold text-center mb-20">
@@ -100,11 +94,12 @@
             ₹999
           </p>
 
-          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold">
+          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
             Buy Now
           </button>
 
         </div>
+
       </div>
 
       <!-- PRODUCT 2 -->
@@ -125,11 +120,12 @@
             ₹1199
           </p>
 
-          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold">
+          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
             Buy Now
           </button>
 
         </div>
+
       </div>
 
       <!-- PRODUCT 3 -->
@@ -150,12 +146,32 @@
             ₹1899
           </p>
 
-          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold">
+          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
             Buy Now
           </button>
 
         </div>
+
       </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="py-24 px-6 md:px-20 bg-zinc-950">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+      <h2 class="text-5xl md:text-6xl font-bold mb-10">
+        About SIKE
+      </h2>
+
+      <p class="text-gray-400 text-lg md:text-xl leading-relaxed">
+        SIKE is a dark aesthetic streetwear brand inspired by oversized culture,
+        modern fashion, and underground creativity.
+        Designed for creators, students, and the new generation.
+      </p>
 
     </div>
 
