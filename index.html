@@ -4,125 +4,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>SIKE</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-black text-white font-sans">
+<body class="bg-black text-white font-sans overflow-x-hidden">
 
-  <!-- HERO -->
-  <section class="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+  <!-- HERO SECTION -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-    <div class="absolute inset-0 bg-cover bg-center opacity-30"
-      style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop')">
+    <!-- Background -->
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');">
     </div>
 
-    <div class="relative z-10 max-w-4xl">
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/70"></div>
 
-     <div class="flex justify-center mb-10">
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-7xl px-6">
 
-  <div class="flex justify-center mb-10">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
 
-  <img
-    src="./logo.png"
-    alt="SIKE Logo"
-    class="w-64 md:w-80 h-64 md:h-40 object-cover rounded-full border-4 border-white shadow-2xl"
-  />
-<div class="flex justify-center mb-10">
+        <!-- LEFT SIDE -->
+        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
 
-  <img
-    src="./logo.png"
-    alt="SIKE Logo"
-    class="w-64 h-64 object-cover rounded-full border-4 border-white"
-  />
+          <!-- LOGO -->
+          <img
+            src="./logo.png"
+            alt="SIKE Logo"
+            class="w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-white shadow-2xl mb-10"
+          />
 
-</div>
-</div>
-<h1 class="text-7xl md:text-9xl font-extrabold tracking-[0.3em] uppercase">
-  SIKE
-</h1>
+          <!-- BRAND -->
+          <h1 class="text-6xl md:text-8xl font-extrabold tracking-[0.3em] uppercase mb-6">
+            SIKE
+          </h1>
 
-     <div class="mt-20 flex gap-6 flex-wrap justify-center">
+          <!-- SUBTEXT -->
+          <p class="text-lg md:text-2xl text-gray-300 max-w-xl leading-relaxed mb-10">
+            Dark aesthetic streetwear built for the new generation.
+            Premium oversized fits with modern street energy.
+          </p>
 
-        <button class="bg-white text-black px-2 py-2 rounded-1xl text-lg font-semibold">
-          Shop Now
-        </button>
+          <!-- BUTTONS -->
+          <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
 
-        <button class="border border-white px-2 py-2 rounded-1xl text-lg font-semibold">
-          Explore
-        </button>
+            <button
+              class="bg-white text-black px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
+              Shop Now
+            </button>
+
+            <button
+              class="border border-white px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-black transition duration-300">
+              Explore
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
+
     </div>
+
   </section>
 
   <!-- PRODUCTS -->
-  <section class="py-24 px-6 md:px-20">
+  <section class="py-24 px-6 md:px-20 bg-black">
 
-    <h2 class="text-5xl font-bold text-center mb-16">
+    <h2 class="text-5xl md:text-6xl font-bold text-center mb-20">
       Featured Drops
     </h2>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden">
+      <!-- PRODUCT 1 -->
+      <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+
         <img
           src="./products/white hoddie.jpg"
           class="h-[420px] w-full object-cover"
         />
 
         <div class="p-6">
+
           <h3 class="text-2xl font-semibold">
-            Rose Oversized Tee
+            SIKE White Hoodie
           </h3>
 
-          <p class="text-gray-400 mt-2">
+          <p class="text-gray-400 mt-2 mb-6">
             ₹999
           </p>
+
+          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold">
+            Buy Now
+          </button>
+
         </div>
       </div>
 
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden">
+      <!-- PRODUCT 2 -->
+      <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+
         <img
           src="./products/white casual shirt.jpg"
           class="h-[420px] w-full object-cover"
         />
 
         <div class="p-6">
+
           <h3 class="text-2xl font-semibold">
             Shadow Graphic Tee
           </h3>
 
-          <p class="text-gray-400 mt-2">
+          <p class="text-gray-400 mt-2 mb-6">
             ₹1199
           </p>
+
+          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold">
+            Buy Now
+          </button>
+
         </div>
       </div>
 
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden">
+      <!-- PRODUCT 3 -->
+      <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+
         <img
           src="./products/off white hoddie.jpg"
           class="h-[420px] w-full object-cover"
         />
 
         <div class="p-6">
+
           <h3 class="text-2xl font-semibold">
             Midnight Hoodie
           </h3>
 
-          <p class="text-gray-400 mt-2">
+          <p class="text-gray-400 mt-2 mb-6">
             ₹1899
           </p>
+
+          <button class="w-full bg-white text-black py-3 rounded-xl font-semibold">
+            Buy Now
+          </button>
+
         </div>
       </div>
 
     </div>
+
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-zinc-800 py-8 text-center text-gray-500">
-    © 2026 SIKE. All rights reserved.
+  <footer class="border-t border-zinc-800 py-10 text-center text-gray-500 bg-black">
+
+    <p class="text-lg">
+      © 2026 SIKE. All rights reserved.
+    </p>
+
+    <p class="mt-3 text-sm text-gray-600">
+      Built for modern streetwear culture.
+    </p>
+
   </footer>
 
 </body>
