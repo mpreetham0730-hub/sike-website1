@@ -16,22 +16,57 @@
 
     body {
       overflow-x: hidden;
+      background: black;
     }
 
     .glow {
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
     }
+
+    .fade-up {
+      animation: fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
+
 </head>
 
 <body class="bg-black text-white font-sans">
 
+  <!-- LOADER -->
+  <div id="loader"
+    class="fixed inset-0 bg-black z-[9999] flex items-center justify-center flex-col">
+
+    <img
+      src="./logo.png"
+      class="w-40 h-40 rounded-full border-4 border-white animate-pulse"
+    />
+
+    <h1 class="text-4xl tracking-[0.4em] font-bold mt-8">
+      SIKE
+    </h1>
+
+  </div>
+
   <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-zinc-800">
+  <nav
+    class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-zinc-800">
 
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <div
+      class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
-      <!-- LOGO -->
+      <!-- BRAND -->
       <div class="flex items-center gap-4">
 
         <img
@@ -39,32 +74,40 @@
           class="w-14 h-14 rounded-full border border-white object-cover"
         />
 
-        <h1 class="text-2xl md:text-3xl font-bold tracking-[0.3em] uppercase">
+        <h1
+          class="text-2xl md:text-3xl font-bold tracking-[0.3em] uppercase">
           SIKE
         </h1>
 
       </div>
 
       <!-- MENU -->
-      <div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
+      <div
+        class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
 
-        <a href="#home" class="hover:text-gray-400 transition duration-300">
+        <a href="#home"
+          class="hover:text-gray-400 transition duration-300">
           Home
         </a>
 
-        <a href="#products" class="hover:text-gray-400 transition duration-300">
+        <a href="#products"
+          class="hover:text-gray-400 transition duration-300">
           Products
         </a>
 
-        <a href="#about" class="hover:text-gray-400 transition duration-300">
+        <a href="#about"
+          class="hover:text-gray-400 transition duration-300">
           About
         </a>
 
-        <a href="#contact" class="hover:text-gray-400 transition duration-300">
+        <a href="#contact"
+          class="hover:text-gray-400 transition duration-300">
           Contact
         </a>
 
-        <a href="https://instagram.com" target="_blank" class="hover:text-gray-400 transition duration-300">
+        <a href="https://instagram.com/sikewear"
+          target="_blank"
+          class="hover:text-gray-400 transition duration-300">
           Instagram
         </a>
 
@@ -75,19 +118,21 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section id="home"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
     <!-- BACKGROUND -->
     <div
-      class="absolute inset-0 bg-cover bg-center scale-110"
+      class="absolute inset-0 bg-cover bg-center bg-fixed scale-110"
       style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');">
     </div>
 
-    <!-- OVERLAY -->
+    <!-- DARK OVERLAY -->
     <div class="absolute inset-0 bg-black/75"></div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 w-full max-w-7xl px-6">
+    <div
+      class="relative z-10 w-full max-w-7xl px-6 fade-up">
 
       <div class="flex flex-col items-center text-center">
 
@@ -98,13 +143,15 @@
           class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white glow shadow-2xl mb-12 hover:scale-105 transition duration-500"
         />
 
-        <!-- BRAND -->
-        <h1 class="text-6xl md:text-9xl font-extrabold tracking-[0.3em] uppercase mb-8">
+        <!-- TITLE -->
+        <h1
+          class="text-6xl md:text-9xl font-extrabold tracking-[0.3em] uppercase mb-8">
           SIKE
         </h1>
 
-        <!-- TEXT -->
-        <p class="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-14">
+        <!-- SUBTEXT -->
+        <p
+          class="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-14">
           Dark aesthetic streetwear built for the new generation.
           Premium oversized fits inspired by modern underground fashion culture.
         </p>
@@ -113,17 +160,25 @@
         <div class="flex flex-wrap justify-center gap-6">
 
           <a href="#products">
+
             <button
-              class="bg-white text-black px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
+              class="bg-white text-black shadow-2xl px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
+
               Shop Now
+
             </button>
+
           </a>
 
           <a href="#about">
+
             <button
-              class="border border-white px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-black transition duration-300">
+              class="border border-white shadow-2xl px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-black transition duration-300">
+
               Explore
+
             </button>
+
           </a>
 
         </div>
@@ -134,10 +189,12 @@
 
   </section>
 
-  <!-- MARQUEE -->
-  <section class="border-y border-zinc-800 py-4 overflow-hidden bg-black">
+  <!-- BRAND STRIP -->
+  <section
+    class="border-y border-zinc-800 py-4 overflow-hidden bg-black">
 
-    <div class="whitespace-nowrap animate-pulse text-xl md:text-2xl font-bold tracking-[0.3em] uppercase text-gray-400">
+    <div
+      class="whitespace-nowrap animate-pulse text-xl md:text-2xl font-bold tracking-[0.3em] uppercase text-gray-400">
 
       SIKE STREETWEAR • DROP 001 • PREMIUM OVERSIZED FITS • DARK AESTHETIC • SIKE STREETWEAR •
 
@@ -146,20 +203,24 @@
   </section>
 
   <!-- PRODUCTS -->
-  <section id="products" class="py-28 px-6 md:px-20 bg-black">
+  <section id="products"
+    class="py-28 px-6 md:px-20 bg-black">
 
-    <h2 class="text-5xl md:text-6xl font-bold text-center mb-20">
+    <h2
+      class="text-5xl md:text-6xl font-bold text-center mb-20">
       Featured Drops
     </h2>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div
+      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
       <!-- PRODUCT 1 -->
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+      <div
+        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
 
         <img
           src="./products/white hoddie.jpg"
-          class="h-[420px] w-full object-cover"
+          class="h-[420px] w-full object-cover hover:scale-110 transition duration-700"
         />
 
         <div class="p-6">
@@ -172,10 +233,16 @@
             ₹999
           </p>
 
-          <a href="https://instagram.com" target="_blank">
-            <button class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+          <a href="https://instagram.com/sikewear"
+            target="_blank">
+
+            <button
+              class="w-full bg-white text-black shadow-2xl py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+
               Buy Now
+
             </button>
+
           </a>
 
         </div>
@@ -183,11 +250,12 @@
       </div>
 
       <!-- PRODUCT 2 -->
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+      <div
+        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
 
         <img
           src="./products/white casual shirt.jpg"
-          class="h-[420px] w-full object-cover"
+          class="h-[420px] w-full object-cover hover:scale-110 transition duration-700"
         />
 
         <div class="p-6">
@@ -200,10 +268,16 @@
             ₹1199
           </p>
 
-          <a href="https://instagram.com" target="_blank">
-            <button class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+          <a href="https://instagram.com/sikewear"
+            target="_blank">
+
+            <button
+              class="w-full bg-white text-black shadow-2xl py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+
               Buy Now
+
             </button>
+
           </a>
 
         </div>
@@ -211,11 +285,12 @@
       </div>
 
       <!-- PRODUCT 3 -->
-      <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+      <div
+        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
 
         <img
           src="./products/off white hoddie.jpg"
-          class="h-[420px] w-full object-cover"
+          class="h-[420px] w-full object-cover hover:scale-110 transition duration-700"
         />
 
         <div class="p-6">
@@ -228,10 +303,16 @@
             ₹1899
           </p>
 
-          <a href="https://instagram.com" target="_blank">
-            <button class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+          <a href="https://instagram.com/sikewear"
+            target="_blank">
+
+            <button
+              class="w-full bg-white text-black shadow-2xl py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+
               Buy Now
+
             </button>
+
           </a>
 
         </div>
@@ -243,14 +324,16 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="py-28 px-6 md:px-20 bg-zinc-950">
+  <section id="about"
+    class="py-28 px-6 md:px-20 bg-zinc-950">
 
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div
+      class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
       <!-- IMAGE -->
       <img
         src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1887&auto=format&fit=crop"
-        class="rounded-3xl shadow-2xl"
+        class="rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
       />
 
       <!-- TEXT -->
@@ -260,13 +343,19 @@
           About SIKE
         </h2>
 
-        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+        <p
+          class="text-gray-400 text-lg leading-relaxed mb-6">
+
           SIKE is a premium dark aesthetic streetwear brand inspired by oversized silhouettes,
           underground culture, and modern fashion energy.
+
         </p>
 
-        <p class="text-gray-500 text-lg leading-relaxed">
+        <p
+          class="text-gray-500 text-lg leading-relaxed">
+
           Designed for creators, students, and trendsetters who want bold identity and premium minimal fashion.
+
         </p>
 
       </div>
@@ -276,17 +365,23 @@
   </section>
 
   <!-- NEWSLETTER -->
-  <section class="py-28 px-6 bg-black text-center">
+  <section
+    class="py-28 px-6 bg-black text-center">
 
-    <h2 class="text-5xl md:text-6xl font-bold mb-8">
+    <h2
+      class="text-5xl md:text-6xl font-bold mb-8">
       Join The Community
     </h2>
 
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
+    <p
+      class="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
+
       Get early access to new drops, exclusive collections, and premium releases.
+
     </p>
 
-    <div class="flex flex-col md:flex-row justify-center gap-4 max-w-2xl mx-auto">
+    <div
+      class="flex flex-col md:flex-row justify-center gap-4 max-w-2xl mx-auto">
 
       <input
         type="email"
@@ -295,8 +390,10 @@
       />
 
       <button
-        class="bg-white text-black px-10 py-4 rounded-2xl font-semibold hover:scale-105 transition duration-300">
+        class="bg-white text-black shadow-2xl px-10 py-4 rounded-2xl font-semibold hover:scale-105 transition duration-300">
+
         Subscribe
+
       </button>
 
     </div>
@@ -304,30 +401,50 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6 bg-zinc-950 text-center">
+  <section id="contact"
+    class="py-24 px-6 bg-zinc-950 text-center">
 
-    <h2 class="text-5xl font-bold mb-10">
+    <h2
+      class="text-5xl font-bold mb-10">
       Connect With SIKE
     </h2>
 
-    <div class="flex flex-wrap justify-center gap-6">
+    <div
+      class="flex flex-wrap justify-center gap-6">
 
-      <a href="https://instagram.com" target="_blank">
-        <button class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+      <a href="https://instagram.com/sikewear"
+        target="_blank">
+
+        <button
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+
           Instagram
+
         </button>
+
       </a>
 
-      <a href="https://youtube.com" target="_blank">
-        <button class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+      <a href="https://youtube.com"
+        target="_blank">
+
+        <button
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+
           YouTube
+
         </button>
+
       </a>
 
       <a href="mailto:yourmail@gmail.com">
-        <button class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+
+        <button
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+
           Email
+
         </button>
+
       </a>
 
     </div>
@@ -335,7 +452,8 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-zinc-800 py-10 text-center text-gray-500 bg-black">
+  <footer
+    class="border-t border-zinc-800 py-10 text-center text-gray-500 bg-black">
 
     <p class="text-lg">
       © 2026 SIKE. All rights reserved.
@@ -346,6 +464,28 @@
     </p>
 
   </footer>
+
+  <!-- LOADER SCRIPT -->
+  <script>
+
+    window.addEventListener("load", () => {
+
+      const loader = document.getElementById("loader");
+
+      setTimeout(() => {
+
+        loader.style.opacity = "0";
+        loader.style.transition = "0.8s";
+
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 800);
+
+      }, 1500);
+
+    });
+
+  </script>
 
 </body>
 
