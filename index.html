@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -10,6 +11,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+
     html {
       scroll-behavior: smooth;
     }
@@ -31,6 +33,7 @@
       background: #444;
       border-radius: 20px;
     }
+
   </style>
 
 </head>
@@ -75,7 +78,8 @@
       </div>
 
       <!-- MENU -->
-      <div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
+      <div
+        class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
 
         <a href="#home"
           class="hover:text-gray-400 transition duration-300">
@@ -170,11 +174,11 @@
 
   </div>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section id="home"
     class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-    <!-- BG -->
+    <!-- BACKGROUND -->
     <div
       class="absolute inset-0 bg-cover bg-center bg-fixed scale-110"
       style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');">
@@ -196,7 +200,9 @@
       <!-- TITLE -->
       <h1
         class="text-6xl md:text-9xl font-extrabold tracking-[0.3em] uppercase mb-8">
+
         SIKE
+
       </h1>
 
       <!-- TEXT -->
@@ -272,7 +278,11 @@
           </p>
 
           <button
-            onclick="addToCart('SIKE White Hoodie', 999)"
+            onclick="addToCart(
+            'SIKE White Hoodie',
+            999,
+            './products/white hoddie.jpg'
+            )"
             class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition">
 
             Add To Cart
@@ -303,7 +313,11 @@
           </p>
 
           <button
-            onclick="addToCart('Shadow Graphic Tee', 1199)"
+            onclick="addToCart(
+            'Shadow Graphic Tee',
+            1199,
+            './products/white casual shirt.jpg'
+            )"
             class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition">
 
             Add To Cart
@@ -334,7 +348,11 @@
           </p>
 
           <button
-            onclick="addToCart('Midnight Hoodie', 1899)"
+            onclick="addToCart(
+            'Midnight Hoodie',
+            1899,
+            './products/off white hoddie.jpg'
+            )"
             class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition">
 
             Add To Cart
@@ -407,6 +425,7 @@
     <div
       class="flex justify-center gap-6 flex-wrap">
 
+      <!-- INSTAGRAM -->
       <a href="https://instagram.com/YOUR_USERNAME"
         target="_blank">
 
@@ -419,12 +438,38 @@
 
       </a>
 
+      <!-- EMAIL -->
       <a href="mailto:yourmail@gmail.com">
 
         <button
           class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition">
 
           Email
+
+        </button>
+
+      </a>
+
+      <!-- PHONE -->
+      <a href="tel:+919876543210">
+
+        <button
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition">
+
+          Call Us
+
+        </button>
+
+      </a>
+
+      <!-- WHATSAPP -->
+      <a href="https://wa.me/919876543210"
+        target="_blank">
+
+        <button
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition">
+
+          WhatsApp
 
         </button>
 
@@ -480,9 +525,13 @@
 
     }
 
-    function addToCart(name, price) {
+    function addToCart(name, price, image) {
 
-      cart.push({ name, price });
+      cart.push({
+        name,
+        price,
+        image
+      });
 
       updateCart();
 
@@ -506,19 +555,31 @@
 
         cartItems.innerHTML += `
 
-          <div class="bg-zinc-900 p-4 rounded-2xl flex justify-between items-center">
+          <div class="bg-zinc-900 p-4 rounded-2xl flex gap-4 items-center">
 
-            <div>
+            <!-- IMAGE -->
+            <img
+              src="${item.image}"
+              class="w-20 h-20 object-cover rounded-xl"
+            />
 
-              <h3 class="font-semibold">${item.name}</h3>
+            <!-- INFO -->
+            <div class="flex-1 text-left">
 
-              <p class="text-gray-400">₹${item.price}</p>
+              <h3 class="font-semibold">
+                ${item.name}
+              </h3>
+
+              <p class="text-gray-400">
+                ₹${item.price}
+              </p>
 
             </div>
 
+            <!-- REMOVE -->
             <button
               onclick="removeItem(${index})"
-              class="text-red-400">
+              class="text-red-400 text-sm">
 
               Remove
 
@@ -564,7 +625,7 @@
 
       }
 
-      // YOUR RAZORPAY PAYMENT LINK
+      // ADD YOUR RAZORPAY LINK HERE
       const razorpayLink = "YOUR_RAZORPAY_LINK";
 
       window.open(razorpayLink, "_blank");
