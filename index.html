@@ -23,20 +23,13 @@
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
     }
 
-    .fade-up {
-      animation: fadeUp 1.2s ease;
+    .cart-scroll::-webkit-scrollbar {
+      width: 4px;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .cart-scroll::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 20px;
     }
   </style>
 
@@ -82,8 +75,7 @@
       </div>
 
       <!-- MENU -->
-      <div
-        class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
+      <div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
 
         <a href="#home"
           class="hover:text-gray-400 transition duration-300">
@@ -105,98 +97,142 @@
           Contact
         </a>
 
-        <a href="https://instagram.com/sike0730"
-          target="_blank"
-          class="hover:text-gray-400 transition duration-300">
-          Instagram
-        </a>
-
       </div>
+
+      <!-- CART BUTTON -->
+      <button
+        onclick="toggleCart()"
+        class="relative border border-white px-5 py-2 rounded-xl hover:bg-white hover:text-black transition">
+
+        Cart
+
+        <span id="cart-count"
+          class="absolute -top-2 -right-2 bg-white text-black w-6 h-6 rounded-full text-xs flex items-center justify-center">
+          0
+        </span>
+
+      </button>
 
     </div>
 
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- CART SIDEBAR -->
+  <div
+    id="cart-sidebar"
+    class="fixed top-0 right-[-100%] w-full md:w-[420px] h-screen bg-zinc-950 z-[999] transition-all duration-500 border-l border-zinc-800 flex flex-col">
+
+    <!-- TOP -->
+    <div class="p-6 border-b border-zinc-800 flex justify-between items-center">
+
+      <h2 class="text-3xl font-bold">
+        Your Cart
+      </h2>
+
+      <button onclick="toggleCart()" class="text-2xl">
+        ✕
+      </button>
+
+    </div>
+
+    <!-- CART ITEMS -->
+    <div id="cart-items"
+      class="flex-1 overflow-y-auto p-6 space-y-4 cart-scroll">
+
+      <p class="text-gray-500">
+        Cart is empty
+      </p>
+
+    </div>
+
+    <!-- TOTAL -->
+    <div class="p-6 border-t border-zinc-800">
+
+      <div class="flex justify-between text-xl mb-6">
+
+        <span>Total</span>
+
+        <span id="cart-total">
+          ₹0
+        </span>
+
+      </div>
+
+      <button
+        onclick="checkout()"
+        class="w-full bg-white text-black py-4 rounded-2xl font-bold hover:scale-105 transition">
+
+        Checkout
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- HERO -->
   <section id="home"
     class="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-    <!-- BACKGROUND -->
+    <!-- BG -->
     <div
       class="absolute inset-0 bg-cover bg-center bg-fixed scale-110"
       style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');">
     </div>
 
-    <!-- DARK OVERLAY -->
+    <!-- OVERLAY -->
     <div class="absolute inset-0 bg-black/75"></div>
 
     <!-- CONTENT -->
     <div
-      class="relative z-10 w-full max-w-7xl px-6 fade-up">
+      class="relative z-10 text-center px-6">
 
-      <div class="flex flex-col items-center text-center">
+      <!-- LOGO -->
+      <img
+        src="./logo.png"
+        class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white mx-auto object-cover glow mb-10"
+      />
 
-        <!-- LOGO -->
-        <img
-          src="./logo.png"
-          alt="SIKE Logo"
-          class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white glow shadow-2xl mb-12 hover:scale-105 transition duration-500"
-        />
+      <!-- TITLE -->
+      <h1
+        class="text-6xl md:text-9xl font-extrabold tracking-[0.3em] uppercase mb-8">
+        SIKE
+      </h1>
 
-        <!-- TITLE -->
-        <h1
-          class="text-6xl md:text-9xl font-extrabold tracking-[0.3em] uppercase mb-8">
-          SIKE
-        </h1>
+      <!-- TEXT -->
+      <p
+        class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
 
-        <!-- SUBTEXT -->
-        <p
-          class="text-lg md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-14">
-          Dark aesthetic streetwear built for the new generation.
-          Premium oversized fits inspired by modern underground fashion culture.
-        </p>
+        Dark aesthetic streetwear built for the new generation.
 
-        <!-- BUTTONS -->
-        <div class="flex flex-wrap justify-center gap-6">
+      </p>
 
-          <a href="#products">
+      <!-- BUTTONS -->
+      <div class="flex justify-center gap-6 flex-wrap">
 
-            <button
-              class="bg-white text-black shadow-2xl px-10 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
+        <a href="#products">
 
-              Shop Now
+          <button
+            class="bg-white text-black px-10 py-4 rounded-2xl font-semibold shadow-2xl hover:scale-105 transition">
 
-            </button>
+            Shop Now
 
-          </a>
+          </button>
 
-          <a href="#about">
+        </a>
 
-            <button
-              class="border border-white shadow-2xl px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-black transition duration-300">
+        <a href="#about">
 
-              Explore
+          <button
+            class="border border-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-black transition">
 
-            </button>
+            Explore
 
-          </a>
+          </button>
 
-        </div>
+        </a>
 
       </div>
-
-    </div>
-
-  </section>
-
-  <!-- BRAND STRIP -->
-  <section
-    class="border-y border-zinc-800 py-4 overflow-hidden bg-black">
-
-    <div
-      class="whitespace-nowrap animate-pulse text-xl md:text-2xl font-bold tracking-[0.3em] uppercase text-gray-400">
-
-      SIKE STREETWEAR • DROP 001 • PREMIUM OVERSIZED FITS • DARK AESTHETIC • SIKE STREETWEAR •
 
     </div>
 
@@ -208,7 +244,9 @@
 
     <h2
       class="text-5xl md:text-6xl font-bold text-center mb-20">
+
       Featured Drops
+
     </h2>
 
     <div
@@ -216,7 +254,7 @@
 
       <!-- PRODUCT 1 -->
       <div
-        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition">
 
         <img
           src="./products/white hoddie.jpg"
@@ -233,17 +271,13 @@
             ₹999
           </p>
 
-          <a href="https://instagram.com/sike0730"
-            target="_blank">
+          <button
+            onclick="addToCart('SIKE White Hoodie', 999)"
+            class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition">
 
-            <button
-              class="w-full bg-white text-black shadow-2xl py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+            Add To Cart
 
-              Buy Now
-
-            </button>
-
-          </a>
+          </button>
 
         </div>
 
@@ -251,7 +285,7 @@
 
       <!-- PRODUCT 2 -->
       <div
-        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition">
 
         <img
           src="./products/white casual shirt.jpg"
@@ -268,17 +302,13 @@
             ₹1199
           </p>
 
-          <a href="https://instagram.com/sike0730"
-            target="_blank">
+          <button
+            onclick="addToCart('Shadow Graphic Tee', 1199)"
+            class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition">
 
-            <button
-              class="w-full bg-white text-black shadow-2xl py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+            Add To Cart
 
-              Buy Now
-
-            </button>
-
-          </a>
+          </button>
 
         </div>
 
@@ -286,7 +316,7 @@
 
       <!-- PRODUCT 3 -->
       <div
-        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition duration-500">
+        class="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition">
 
         <img
           src="./products/off white hoddie.jpg"
@@ -303,17 +333,13 @@
             ₹1899
           </p>
 
-          <a href="https://instagram.com/sike0730"
-            target="_blank">
+          <button
+            onclick="addToCart('Midnight Hoodie', 1899)"
+            class="w-full bg-white text-black py-3 rounded-xl font-semibold hover:scale-105 transition">
 
-            <button
-              class="w-full bg-white text-black shadow-2xl py-3 rounded-xl font-semibold hover:scale-105 transition duration-300">
+            Add To Cart
 
-              Buy Now
-
-            </button>
-
-          </a>
+          </button>
 
         </div>
 
@@ -333,14 +359,17 @@
       <!-- IMAGE -->
       <img
         src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1887&auto=format&fit=crop"
-        class="rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
+        class="rounded-3xl shadow-2xl"
       />
 
       <!-- TEXT -->
       <div>
 
-        <h2 class="text-5xl md:text-6xl font-bold mb-8">
+        <h2
+          class="text-5xl md:text-6xl font-bold mb-8">
+
           About SIKE
+
         </h2>
 
         <p
@@ -364,73 +393,27 @@
 
   </section>
 
-  <!-- NEWSLETTER -->
-  <section
-    class="py-28 px-6 bg-black text-center">
-
-    <h2
-      class="text-5xl md:text-6xl font-bold mb-8">
-      Join The Community
-    </h2>
-
-    <p
-      class="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
-
-      Get early access to new drops, exclusive collections, and premium releases.
-
-    </p>
-
-    <div
-      class="flex flex-col md:flex-row justify-center gap-4 max-w-2xl mx-auto">
-
-      <input
-        type="email"
-        placeholder="Enter your email"
-        class="flex-1 bg-zinc-900 border border-zinc-700 px-6 py-4 rounded-2xl outline-none"
-      />
-
-      <button
-        class="bg-white text-black shadow-2xl px-10 py-4 rounded-2xl font-semibold hover:scale-105 transition duration-300">
-
-        Subscribe
-
-      </button>
-
-    </div>
-
-  </section>
-
   <!-- CONTACT -->
   <section id="contact"
-    class="py-24 px-6 bg-zinc-950 text-center">
+    class="py-24 px-6 bg-black text-center">
 
     <h2
       class="text-5xl font-bold mb-10">
+
       Connect With SIKE
+
     </h2>
 
     <div
-      class="flex flex-wrap justify-center gap-6">
+      class="flex justify-center gap-6 flex-wrap">
 
-      <a href="https://instagram.com/sike0730"
+      <a href="https://instagram.com/YOUR_USERNAME"
         target="_blank">
 
         <button
-          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition">
 
           Instagram
-
-        </button>
-
-      </a>
-
-      <a href="https://youtube.com"
-        target="_blank">
-
-        <button
-          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
-
-          YouTube
 
         </button>
 
@@ -439,7 +422,7 @@
       <a href="mailto:yourmail@gmail.com">
 
         <button
-          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition duration-300">
+          class="border border-white px-10 py-4 rounded-2xl hover:bg-white hover:text-black transition">
 
           Email
 
@@ -459,15 +442,12 @@
       © 2026 SIKE. All rights reserved.
     </p>
 
-    <p class="mt-3 text-sm text-gray-600">
-      Built for modern streetwear culture.
-    </p>
-
   </footer>
 
-  <!-- LOADER SCRIPT -->
+  <!-- JAVASCRIPT -->
   <script>
 
+    // LOADER
     window.addEventListener("load", () => {
 
       const loader = document.getElementById("loader");
@@ -484,6 +464,112 @@
       }, 1500);
 
     });
+
+    // CART
+    let cart = [];
+
+    function toggleCart() {
+
+      const sidebar = document.getElementById("cart-sidebar");
+
+      if (sidebar.style.right === "0px") {
+        sidebar.style.right = "-100%";
+      } else {
+        sidebar.style.right = "0";
+      }
+
+    }
+
+    function addToCart(name, price) {
+
+      cart.push({ name, price });
+
+      updateCart();
+
+      toggleCart();
+
+    }
+
+    function updateCart() {
+
+      const cartItems = document.getElementById("cart-items");
+      const cartCount = document.getElementById("cart-count");
+      const cartTotal = document.getElementById("cart-total");
+
+      cartItems.innerHTML = "";
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+
+        total += item.price;
+
+        cartItems.innerHTML += `
+
+          <div class="bg-zinc-900 p-4 rounded-2xl flex justify-between items-center">
+
+            <div>
+
+              <h3 class="font-semibold">${item.name}</h3>
+
+              <p class="text-gray-400">₹${item.price}</p>
+
+            </div>
+
+            <button
+              onclick="removeItem(${index})"
+              class="text-red-400">
+
+              Remove
+
+            </button>
+
+          </div>
+
+        `;
+
+      });
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+          <p class="text-gray-500">
+            Cart is empty
+          </p>
+        `;
+
+      }
+
+      cartCount.innerText = cart.length;
+
+      cartTotal.innerText = `₹${total}`;
+
+    }
+
+    function removeItem(index) {
+
+      cart.splice(index, 1);
+
+      updateCart();
+
+    }
+
+    function checkout() {
+
+      if (cart.length === 0) {
+
+        alert("Your cart is empty");
+
+        return;
+
+      }
+
+      // YOUR RAZORPAY PAYMENT LINK
+      const razorpayLink = "YOUR_RAZORPAY_LINK";
+
+      window.open(razorpayLink, "_blank");
+
+    }
 
   </script>
 
