@@ -44,13 +44,6 @@
       <h1 class="text-2xl md:text-3xl font-bold tracking-[0.3em] uppercase">SIKE</h1>
     </div>
 
-    <div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-
     <button onclick="toggleCart()" class="relative border border-white px-5 py-2 rounded-xl hover:bg-white hover:text-black">
       Cart
       <span id="cart-count" class="absolute -top-2 -right-2 bg-white text-black w-6 h-6 rounded-full text-xs flex items-center justify-center">0</span>
@@ -86,34 +79,28 @@
 </div>
 
 <!-- HERO -->
-<section id="home" class="relative min-h-screen flex items-center justify-center">
-  <div class="absolute inset-0 bg-cover bg-center scale-110"
-    style="background-image:url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1974&auto=format&fit=crop');">
-  </div>
-  <div class="absolute inset-0 bg-black/75"></div>
-
-  <div class="relative text-center">
+<section class="min-h-screen flex items-center justify-center text-center">
+  <div>
     <img src="./logo.png" class="w-64 h-64 mx-auto rounded-full border-4 border-white glow mb-10" />
-    <h1 class="text-6xl md:text-9xl font-extrabold tracking-[0.3em]">SIKE</h1>
-    <p class="text-gray-300 mt-6">Dark aesthetic streetwear brand</p>
+    <h1 class="text-6xl md:text-9xl font-bold tracking-[0.3em]">SIKE</h1>
+    <p class="text-gray-400 mt-4">Dark aesthetic streetwear</p>
   </div>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="py-28 px-6 md:px-20">
+<section class="py-28 px-6 md:px-20">
 
   <h2 class="text-5xl text-center mb-20">Featured Drops</h2>
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-    <!-- PRODUCT -->
     <div class="bg-zinc-900 rounded-3xl overflow-hidden">
       <img src="./products/white hoddie.jpg" class="h-[420px] w-full object-cover" />
       <div class="p-6">
-        <h3 class="text-2xl">SIKE White Hoodie</h3>
-        <p class="text-gray-400 mb-4">₹999</p>
+        <h3>SIKE White Hoodie</h3>
+        <p class="text-gray-400">₹999</p>
         <button onclick="addToCart('SIKE White Hoodie',999,'./products/white hoddie.jpg')"
-          class="w-full bg-white text-black py-3 rounded-xl">
+          class="w-full mt-4 bg-white text-black py-3 rounded-xl">
           Add To Cart
         </button>
       </div>
@@ -122,10 +109,10 @@
     <div class="bg-zinc-900 rounded-3xl overflow-hidden">
       <img src="./products/white casual shirt.jpg" class="h-[420px] w-full object-cover" />
       <div class="p-6">
-        <h3 class="text-2xl">Shadow Graphic Tee</h3>
-        <p class="text-gray-400 mb-4">₹1199</p>
+        <h3>Shadow Graphic Tee</h3>
+        <p class="text-gray-400">₹1199</p>
         <button onclick="addToCart('Shadow Graphic Tee',1199,'./products/white casual shirt.jpg')"
-          class="w-full bg-white text-black py-3 rounded-xl">
+          class="w-full mt-4 bg-white text-black py-3 rounded-xl">
           Add To Cart
         </button>
       </div>
@@ -134,10 +121,10 @@
     <div class="bg-zinc-900 rounded-3xl overflow-hidden">
       <img src="./products/off white hoddie.jpg" class="h-[420px] w-full object-cover" />
       <div class="p-6">
-        <h3 class="text-2xl">Midnight Hoodie</h3>
-        <p class="text-gray-400 mb-4">₹1899</p>
+        <h3>Midnight Hoodie</h3>
+        <p class="text-gray-400">₹1899</p>
         <button onclick="addToCart('Midnight Hoodie',1899,'./products/off white hoddie.jpg')"
-          class="w-full bg-white text-black py-3 rounded-xl">
+          class="w-full mt-4 bg-white text-black py-3 rounded-xl">
           Add To Cart
         </button>
       </div>
@@ -146,34 +133,11 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-28 px-6 bg-zinc-950 text-center">
-  <h2 class="text-5xl mb-10">About SIKE</h2>
-  <p class="text-gray-400 max-w-3xl mx-auto">
-    SIKE is a dark aesthetic streetwear brand built for bold identity and modern fashion culture.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-24 text-center">
-  <h2 class="text-5xl mb-10">Connect</h2>
-
-  <a href="https://wa.me/919876543210" target="_blank">
-    <button class="border px-8 py-3 rounded-xl">WhatsApp</button>
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer class="text-center py-10 text-gray-500 border-t border-zinc-800">
-  © 2026 SIKE
-</footer>
-
 <!-- SCRIPT -->
 <script>
 
 window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  setTimeout(() => loader.style.display = "none", 1500);
+  setTimeout(() => document.getElementById("loader").style.display = "none", 1500);
 });
 
 let cart = [];
@@ -184,7 +148,15 @@ function toggleCart() {
 }
 
 function addToCart(name, price, image) {
-  cart.push({ name, price, image });
+
+  let size = prompt("Enter size (S / M / L / XL)");
+  if (!size) return;
+
+  let qty = parseInt(prompt("Enter quantity"), 10);
+  if (!qty || qty <= 0) qty = 1;
+
+  cart.push({ name, price, image, size, qty });
+
   updateCart();
   toggleCart();
 }
@@ -196,19 +168,37 @@ function updateCart() {
   const cartTotal = document.getElementById("cart-total");
 
   cartItems.innerHTML = "";
+
   let total = 0;
+  let count = 0;
 
   cart.forEach((item, index) => {
-    total += item.price;
+
+    let itemTotal = item.price * item.qty;
+    total += itemTotal;
+    count += item.qty;
 
     cartItems.innerHTML += `
       <div class="bg-zinc-900 p-4 rounded-2xl flex gap-4 items-center">
+
         <img src="${item.image}" class="w-20 h-20 object-cover rounded-xl" />
-        <div class="flex-1">
+
+        <div class="flex-1 text-left">
+
           <h3>${item.name}</h3>
-          <p class="text-gray-400">₹${item.price}</p>
+
+          <p class="text-gray-400">
+            Size: ${item.size} | Qty: ${item.qty}
+          </p>
+
+          <p>₹${itemTotal}</p>
+
         </div>
-        <button onclick="removeItem(${index})" class="text-red-400">Remove</button>
+
+        <button onclick="removeItem(${index})" class="text-red-400">
+          Remove
+        </button>
+
       </div>
     `;
   });
@@ -217,7 +207,7 @@ function updateCart() {
     cartItems.innerHTML = `<p class="text-gray-500">Cart is empty</p>`;
   }
 
-  cartCount.innerText = cart.length;
+  cartCount.innerText = count;
   cartTotal.innerText = `₹${total}`;
 }
 
@@ -233,15 +223,23 @@ function checkout() {
     return;
   }
 
-  let message = "🛒 SIKE ORDER%0A%0A";
+  let message = "🛒 *SIKE ORDER*%0A%0A";
   let total = 0;
 
   cart.forEach((item, i) => {
-    message += `${i+1}. ${item.name}%0A₹${item.price}%0A%0A`;
-    total += item.price;
+
+    let itemTotal = item.price * item.qty;
+    total += itemTotal;
+
+    message += `*${i + 1}. ${item.name}*%0A`;
+    message += `Size: ${item.size}%0A`;
+    message += `Qty: ${item.qty}%0A`;
+    message += `Price: ₹${itemTotal}%0A%0A`;
   });
 
-  message += `Total: ₹${total}%0A%0AConfirm order`;
+  message += `-----------------%0A`;
+  message += `TOTAL: ₹${total}%0A%0A`;
+  message += `Confirm order`;
 
   const phone = "917411260730";
 
