@@ -727,20 +727,20 @@
         return;
       }
 
-      let message = `*SIKE FASHION - NEW ORDER*\\n\\n`;
-      message += `*Customer:* ${customerName}\\n`;
-      message += `*Phone:* ${customerPhone}\\n`;
-      message += `*Delivery Address:* ${address}\\n\\n`;
-      message += `*Order Details:*\\n`;
+      let message = `*SIKE FASHION - NEW ORDER*\n\n`;
+      message += `*Customer:* ${customerName}\n`;
+      message += `*Phone:* ${customerPhone}\n`;
+      message += `*Delivery Address:* ${address}\n\n`;
+      message += `*Order Details:*\n`;
 
       let total = 0;
 
       cart.forEach((item, index) => {
         total += item.price;
-        message += `${index + 1}. ${item.name} - ₹${item.price}\\n`;
+        message += `${index + 1}. ${item.name} - ₹${item.price}\n`;
       });
 
-      message += `\\n*Total:* ₹${total}\\n\\n`;
+      message += `\n*Total:* ₹${total}\n\n`;
       message += `Please confirm my order and share the next steps.`;
 
       const whatsappNumber = "917411260730";
