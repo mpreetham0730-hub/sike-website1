@@ -163,10 +163,18 @@
       </div>
 
       <button
-        onclick="checkout()"
+        onclick="whatsappOrder()"
         class="w-full bg-white text-black py-4 rounded-2xl font-bold hover:scale-105 transition">
 
-        Checkout
+        Order on WhatsApp
+
+      </button>
+
+      <button
+        onclick="checkout()"
+        class="w-full mt-3 border border-white text-white py-4 rounded-2xl font-bold hover:bg-white hover:text-black transition">
+
+        Pay Online
 
       </button>
 
@@ -612,6 +620,49 @@
       cart.splice(index, 1);
 
       updateCart();
+
+    }
+
+    function whatsappOrder() {
+
+      if (cart.length === 0) {
+
+        alert("Your cart is empty");
+
+        return;
+
+      }
+
+      const customerName = prompt("Enter your name:");
+      if (!customerName) return;
+
+      const customerPhone = prompt("Enter your phone number:");
+      if (!customerPhone) return;
+
+      const address = prompt("Enter your delivery address:");
+      if (!address) return;
+
+      let message = `*SIKE FASHION - NEW ORDER*\\n\\n`;
+      message += `*Customer:* ${customerName}\\n`;
+      message += `*Phone:* ${customerPhone}\\n`;
+      message += `*Delivery Address:* ${address}\\n\\n`;
+      message += `*Order Details:*\\n`;
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        message += `${index + 1}. ${item.name} - ₹${item.price}\\n`;
+      });
+
+      message += `\\n*Total:* ₹${total}\\n\\n`;
+      message += `Please confirm my order and share the next steps.`;
+
+      const whatsappNumber = "917411260730";
+      const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappURL, "_blank");
 
     }
 
